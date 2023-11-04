@@ -1,0 +1,457 @@
+Index: src/UI_Default.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UI_Default.java b/src/UI_Default.java
+new file mode 100644
+--- /dev/null	(date 1699089701831)
++++ b/src/UI_Default.java	(date 1699089701831)
+@@ -0,0 +1,51 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class UI_Default {
++    private static void createContentPane(Container container) {
++        JButton button;
++        ScreenManager listener = new ScreenManager();
++
++        button = new JButton("Search");
++        button.setActionCommand("Search");
++        button.addActionListener(listener);
++        container.add(button, BorderLayout.CENTER);
++
++        button = new JButton("History");
++        button.setActionCommand("History");
++        button.addActionListener(listener);
++        container.add(button, BorderLayout.LINE_END);
++
++        button = new JButton("Quiz");
++        button.setActionCommand("Quiz");
++        button.addActionListener(listener);
++
++        container.add(button, BorderLayout.PAGE_END);
++
++    }
++
++    public static JFrame createFrame() {
++        //Make sure we have nice window decorations.
++        JFrame.setDefaultLookAndFeelDecorated(true);
++
++        //Create and set up the window.
++        JFrame frame = new JFrame("Dictionary");
++        frame.setMinimumSize(new Dimension(400, 100));
++        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        //Set up the content pane.
++        createContentPane(frame.getContentPane());
++        //Use the content pane's default BorderLayout. No need for
++        //setLayout(new BorderLayout());
++
++        //Display the window.
++        frame.pack();
++        frame.setVisible(true);
++//        frame.setLocation(200,200);
++        return frame;
++    }
++
++    public static void main(String[] args){
++    }
++
++}
+Index: src/ScreenManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ScreenManager.java b/src/ScreenManager.java
+new file mode 100644
+--- /dev/null	(date 1699090504534)
++++ b/src/ScreenManager.java	(date 1699090504534)
+@@ -0,0 +1,56 @@
++import javax.swing.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
++public class ScreenManager implements ActionListener {
++    public ScreenManager() {
++
++    }
++
++    private static JFrame frame;
++
++    public void actionPerformed(ActionEvent e)
++    {
++        String actionCommand = e.getActionCommand();
++        System.out.println(actionCommand);
++
++        switch (actionCommand){
++            case "Search":
++                frame.dispose();
++                frame = UI_Search.createFrame();
++                break;
++            case "History":
++                frame.dispose();
++                frame = UI_History.createFrame();
++                break;
++            case "Random Word":
++                break;
++            case "Quiz":
++                frame.dispose();
++                frame = UI_Quiz.createFrame();
++                break;
++            case "Add":
++                break;
++            case "Edit":
++                break;
++            case "Delete":
++                break;
++            case "Reset":
++                break;
++            case "Back":
++                frame.dispose();
++                frame = UI_Default.createFrame();
++                break;
++            default:
++                break;
++        }
++    }
++
++    public static void main(String[] args){
++        SwingUtilities.invokeLater(new Runnable() {
++            public void run() {
++                frame = UI_Default.createFrame();
++            }
++        });
++    }
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1699090376903)
++++ b/.idea/vcs.xml	(date 1699090376903)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/UI_History.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UI_History.java b/src/UI_History.java
+new file mode 100644
+--- /dev/null	(date 1699090234965)
++++ b/src/UI_History.java	(date 1699090234965)
+@@ -0,0 +1,43 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class UI_History {
++    private static String[] history = {"1", "2"};
++    private static void createContentPane(Container container) {
++        ScreenManager listener = new ScreenManager();
++        JList<String> list = new JList<String>(history);
++        container.add(list, BorderLayout.CENTER);
++
++        JPanel returnPanel = new JPanel();
++        JButton button = new JButton("Back");
++        button.setActionCommand("Back");
++        button.addActionListener(listener);
++        returnPanel.add(button);
++
++        container.add(returnPanel, BorderLayout.PAGE_END);
++    }
++
++    public static JFrame createFrame() {
++        //Make sure we have nice window decorations.
++        JFrame.setDefaultLookAndFeelDecorated(true);
++
++        //Create and set up the window.
++        JFrame frame = new JFrame("History");
++        frame.setMinimumSize(new Dimension(400, 100));
++        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        //Set up the content pane.
++        createContentPane(frame.getContentPane());
++        //Use the content pane's default BorderLayout. No need for
++        //setLayout(new BorderLayout());
++
++        //Display the window.
++        frame.pack();
++        frame.setVisible(true);
++//        frame.setLocation(200,200);
++        return frame;
++    }
++
++    public static void main(String[] args){
++    }
++}
+Index: src/UI_Quiz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UI_Quiz.java b/src/UI_Quiz.java
+new file mode 100644
+--- /dev/null	(date 1699090331686)
++++ b/src/UI_Quiz.java	(date 1699090331686)
+@@ -0,0 +1,40 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class UI_Quiz {
++    private static void createContentPane(Container container) {
++        ScreenManager listener = new ScreenManager();
++
++        JPanel returnPanel = new JPanel();
++        JButton button = new JButton("Back");
++        button.setActionCommand("Back");
++        button.addActionListener(listener);
++        returnPanel.add(button);
++
++        container.add(returnPanel, BorderLayout.PAGE_END);
++    }
++
++    public static JFrame createFrame() {
++        //Make sure we have nice window decorations.
++        JFrame.setDefaultLookAndFeelDecorated(true);
++
++        //Create and set up the window.
++        JFrame frame = new JFrame("Quiz");
++        frame.setMinimumSize(new Dimension(400, 100));
++        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        //Set up the content pane.
++        createContentPane(frame.getContentPane());
++        //Use the content pane's default BorderLayout. No need for
++        //setLayout(new BorderLayout());
++
++        //Display the window.
++        frame.pack();
++        frame.setVisible(true);
++//        frame.setLocation(200,200);
++        return frame;
++    }
++
++    public static void main(String[] args){
++    }
++}
+Index: PA01.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PA01.iml b/PA01.iml
+new file mode 100644
+--- /dev/null	(date 1698980794889)
++++ b/PA01.iml	(date 1698980794889)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1698980794905)
++++ b/.idea/modules.xml	(date 1698980794905)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/PA01.iml" filepath="$PROJECT_DIR$/PA01.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/UI_Search.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UI_Search.java b/src/UI_Search.java
+new file mode 100644
+--- /dev/null	(date 1699089934301)
++++ b/src/UI_Search.java	(date 1699089934301)
+@@ -0,0 +1,84 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class UI_Search {
++    private static void addComponentsToPane(Container container) {
++        ScreenManager listener = new ScreenManager();
++
++        JPanel searchPanel = new JPanel();
++        searchPanel.setLayout(new FlowLayout());
++
++        JTextField textField = new JTextField();
++        textField.setPreferredSize(new Dimension(200, 20));
++        searchPanel.add(textField, BorderLayout.CENTER);
++
++        JButton button = new JButton("Find");
++        button.setActionCommand("Find");
++        button.addActionListener(listener);
++        searchPanel.add(button, BorderLayout.LINE_END);
++
++        container.add(searchPanel, BorderLayout.CENTER);
++
++        JPanel updatePanel = new JPanel();
++        updatePanel.setLayout(new BoxLayout(updatePanel, BoxLayout.Y_AXIS));
++
++        button = new JButton("Add");
++        button.setAlignmentX(Component.CENTER_ALIGNMENT);
++        button.setActionCommand("Add");
++        button.addActionListener(listener);
++        updatePanel.add(button);
++
++        button = new JButton("Edit");
++        button.setAlignmentX(Component.CENTER_ALIGNMENT);
++        button.setActionCommand("Edit");
++        button.addActionListener(listener);
++        updatePanel.add(button);
++
++        button = new JButton("Delete");
++        button.setAlignmentX(Component.CENTER_ALIGNMENT);
++        button.setActionCommand("Delete");
++        button.addActionListener(listener);
++        updatePanel.add(button);
++
++        button = new JButton("Reset");
++        button.setAlignmentX(Component.CENTER_ALIGNMENT);
++        button.setActionCommand("Reset");
++        button.addActionListener(listener);
++        updatePanel.add(button);
++
++        container.add(updatePanel, BorderLayout.LINE_END);
++
++        JPanel returnPanel = new JPanel();
++
++        button = new JButton("Back");
++        button.setActionCommand("Back");
++        button.addActionListener(listener);
++        returnPanel.add(button);
++
++        container.add(returnPanel, BorderLayout.PAGE_END);
++    }
++
++    public static JFrame createFrame() {
++        //Make sure we have nice window decorations.
++        JFrame.setDefaultLookAndFeelDecorated(true);
++
++        //Create and set up the window.
++        JFrame frame = new JFrame("Search");
++        frame.setMinimumSize(new Dimension(400, 100));
++        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        //Set up the content pane.
++        addComponentsToPane(frame.getContentPane());
++        //Use the content pane's default BorderLayout. No need for
++        //setLayout(new BorderLayout());
++
++        //Display the window.
++        frame.pack();
++        frame.setVisible(true);
++        return frame;
++    }
++
++    public static void main(String[] args){
++    }
++
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1698980795039)
++++ b/.idea/.gitignore	(date 1698980795039)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1698980794923)
++++ b/.idea/misc.xml	(date 1698980794923)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1698979360293)
++++ b/.gitignore	(date 1698979360293)
+@@ -0,0 +1,29 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
