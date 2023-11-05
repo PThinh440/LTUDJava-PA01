@@ -4,7 +4,7 @@ import java.awt.*;
 public class UI_History {
     private static String[] history = {"1", "2"};
     private static void createContentPane(Container container) {
-        EventListenter listener = new EventListenter();
+        EventListener listener = new EventListener();
         JList<String> list = new JList<String>(history);
         container.add(list, BorderLayout.CENTER);
 

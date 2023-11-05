@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class UI_Quiz {
     private static void createContentPane(Container container) {
-        EventListenter listener = new EventListenter();
+        EventListener listener = new EventListener();
 
         JPanel returnPanel = new JPanel();
         JButton button = new JButton("Back");

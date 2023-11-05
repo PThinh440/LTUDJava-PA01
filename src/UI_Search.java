@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class UI_Search {
     private static void addComponentsToPane(Container container) {
-        EventListenter listener = new EventListenter();
+        EventListener listener = new EventListener();
 
         JPanel searchPanel = new JPanel();
         searchPanel.setLayout(new FlowLayout());

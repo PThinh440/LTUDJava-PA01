@@ -4,7 +4,7 @@ import java.awt.*;
 public class UI_Default {
     private static void createContentPane(Container container) {
         JButton button;
-        EventListenter listener = new EventListenter();
+        EventListener listener = new EventListener();
 
         button = new JButton("Search");
         button.setActionCommand("Search");

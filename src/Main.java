@@ -2,13 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ScreenManager implements ActionListener {
-    public ScreenManager() {
-
-    }
-
-    private static JFrame frame;
-
+class EventListener implements ActionListener{
     public void actionPerformed(ActionEvent e)
     {
         String actionCommand = e.getActionCommand();
@@ -16,35 +10,43 @@ public class ScreenManager implements ActionListener {
 
         switch (actionCommand){
             case "Search":
-                frame.dispose();
-                frame = UI_Search.createFrame();
+                Main.frame.dispose();
+                Main.frame = UI_Search.createFrame();
                 break;
             case "History":
-                frame.dispose();
-                frame = UI_History.createFrame();
+                Main.frame.dispose();
+                Main.frame = UI_History.createFrame();
                 break;
             case "Random Word":
                 break;
             case "Quiz":
-                frame.dispose();
-                frame = UI_Quiz.createFrame();
+                Main.frame.dispose();
+                Main.frame = UI_Quiz.createFrame();
                 break;
-            case "Add":
-                break;
-            case "Edit":
-                break;
-            case "Delete":
-                break;
-            case "Reset":
-                break;
+//            case "Add":
+//                break;
+//            case "Edit":
+//                break;
+//            case "Delete":
+//                break;
+//            case "Reset":
+//                break;
             case "Back":
-                frame.dispose();
-                frame = UI_Default.createFrame();
+                Main.frame.dispose();
+                Main.frame = UI_Default.createFrame();
                 break;
             default:
                 break;
         }
     }
+}
+
+public class Main {
+    public Main() {
+
+    }
+
+    public static JFrame frame;
 
     public static void main(String[] args){
         SwingUtilities.invokeLater(new Runnable() {
