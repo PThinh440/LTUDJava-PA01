@@ -89,19 +89,9 @@ public class DictionaryManager {
     public static boolean editExistingWord(String word){
         if (dictionary.containsKey(word)){
             // parse definitions
-            // "Which definition you want to edit?" -> textarea?
-//            for (int i = 0; i < n; i++){
-//                (Interger.toString(i) + ") " + definition[i])
-//
-//            }
-//            while(break) {
-//            choose
-//            definition[i] = newDefinition
-//            }
-//            dictionary.replace(word, dictionary.get(word), definition);
-
+            String newDefinition = JOptionPane.showInputDialog("Definition:");
+            dictionary.replace(word, newDefinition);
         } else {
-            //"This word is not in dictionary"
             return false;
         }
         return true;
