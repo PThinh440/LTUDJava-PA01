@@ -62,6 +62,8 @@ class EventListener implements ActionListener{
 
                 if (DictionaryManager.addNewWord(text)){
                     JOptionPane.showMessageDialog(null, "Add successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "This word is not in dictionary");
                 }
 
                 break;
@@ -75,7 +77,8 @@ class EventListener implements ActionListener{
                 }
                 if (DictionaryManager.editExistingWord(text)){
                     JOptionPane.showMessageDialog(null, "Edit successfully!");
-
+                } else{
+                    JOptionPane.showMessageDialog(null, "This word is not in dictionary");
                 }
                 break;
             }
@@ -110,7 +113,7 @@ class EventListener implements ActionListener{
     }
 }
 
-public class Main { // 3, 5, 8, 9, 10
+public class Main { // 5, 8, 9, 10
     public static JFrame frame;
     public static void main(String[] args){
         SwingUtilities.invokeLater(new Runnable() {
