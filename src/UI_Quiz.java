@@ -8,62 +8,79 @@ public class UI_Quiz {
 
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
-//        container.getAlignmentX()
+        //// DAILY WORD PANEL
         JPanel dailyWordPanel = new JPanel();
         dailyWordPanel.setLayout(new BoxLayout(dailyWordPanel, BoxLayout.Y_AXIS));
+        dailyWordPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        JPanel wordBoxPannel = new JPanel();
+        /// WORD BOX PANEL
+        JPanel wordBoxPanel = new JPanel();
+        wordBoxPanel.setBackground(Color.WHITE);
+
+        // WORD LABEL
         JLabel wordDisplay = new JLabel("Hello");
         wordDisplay.setAlignmentX(Component.CENTER_ALIGNMENT);
-        wordBoxPannel.add(wordDisplay);
-        wordBoxPannel.setBackground(Color.WHITE);
+        wordBoxPanel.add(wordDisplay);
 
-        dailyWordPanel.add(wordBoxPannel);
+        dailyWordPanel.add(wordBoxPanel);
+
+        /// RIGID AREA
         dailyWordPanel.add(Box.createRigidArea(new Dimension(200, 10)));
 
+        /// NEW BUTTON
         JButton button = new JButton("New word");
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setActionCommand("New");
         button.addActionListener(listener);
         dailyWordPanel.add(button);
-        dailyWordPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         container.add(dailyWordPanel);
 
+        //// QUIZ PANEL
         JPanel quizPanel = new JPanel();
+        quizPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         quizPanel.setLayout(new BoxLayout(quizPanel, BoxLayout.Y_AXIS));
+
+        /// LABEL
         JLabel quiz = new JLabel("Quiz");
         quiz.setAlignmentX(Component.CENTER_ALIGNMENT);
         quizPanel.add(quiz);
 
+        /// CHOICE PANEL
         JPanel choicePanel = new JPanel();
         choicePanel.setLayout(new FlowLayout());
+
+        // OPT 1 BUTTON
         button = new JButton("Option 1");
         button.setActionCommand("Opt1");
         button.addActionListener(listener);
         choicePanel.add(button);
 
+        // OPT 2 BUTTON
         button = new JButton("Option 2");
         button.setActionCommand("Opt2");
         button.addActionListener(listener);
         choicePanel.add(button);
 
+        // OPT 3 BUTTON
         button = new JButton("Option 3");
         button.setActionCommand("Opt3");
         button.addActionListener(listener);
         choicePanel.add(button);
 
+        // OPT 4 BUTTON
         button = new JButton("Option 4");
         button.setActionCommand("Opt4");
         button.addActionListener(listener);
         choicePanel.add(button);
 
         quizPanel.add(choicePanel);
-        quizPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-
         container.add(quizPanel);
 
+        //// RETURN PANEL
         JPanel returnPanel = new JPanel();
+
+        /// RETURN BUTTON
         button = new JButton("Back");
         button.setActionCommand("Back");
         button.addActionListener(listener);
