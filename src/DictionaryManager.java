@@ -1,9 +1,12 @@
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Random;
 import java.util.TreeMap;
 
 public class DictionaryManager {
     public static TreeMap<String, String> dictionary;
+    public static Random rand = new Random();
+
 
     public static void loadDictionary() throws IOException {
         dictionary = FileLoader.loadDictionary();
@@ -63,7 +66,7 @@ public class DictionaryManager {
         }
 
         // add to history
-//        HistoryTable.addToHistory(word);
+        HistoryTable.addToHistory(word + ": " + dictionary.get(word));
 
         return definition;
     }
@@ -97,11 +100,6 @@ public class DictionaryManager {
         return true;
     }
 
-    public static boolean resetDictionary(){
-        // load dictionary
-        return true;
-    }
-
     public static String[] getWordMeaning(){
         String[] meaning = new String[0];
 
@@ -109,12 +107,17 @@ public class DictionaryManager {
     }
 
     public static String randomWord(){
-        String word = "";
-        return word;
+        String word = "", definition = "";
+        int chosenWordIndex = rand.nextInt(dictionary.size());
+        word = (String) dictionary.keySet().toArray()[chosenWordIndex];
+        definition = dictionary.get(word);
+
+        return word + ": " + definition;
     }
 
     public static String randomDefinition(){
         String definition = "";
+
         return definition;
     }
 

@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UI_History {
-    private static String[] history = {"1", "2"};
     private static void createContentPane(Container container) {
         EventListener listener = new EventListener();
-        JList<String> list = new JList<String>(history);
-        container.add(list, BorderLayout.CENTER);
+
+        JList list = new JList(HistoryTable.wordHistory.toArray());
+
+        JScrollPane scrollPane = new JScrollPane(list);
+        container.add(scrollPane, BorderLayout.CENTER);
+
 
         JPanel returnPanel = new JPanel();
         JButton button = new JButton("Back");
