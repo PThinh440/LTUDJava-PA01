@@ -1,61 +1,111 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class UI_Search {
+    public static JTextField textInput;
+    public static JList<String> searchResult;
+    public static JComboBox<String> comboBox;
     private static void addComponentsToPane(Container container) {
         EventListener listener = new EventListener();
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
+        //// INPUT PANEL
+        JPanel inputPanel = new JPanel();
+        inputPanel.setBorder(BorderFactory.createTitledBorder("Input text"));
+        inputPanel.setBackground(Color.WHITE);
+
+        /// TEXT FIELD
+        textInput = new JTextField();
+        textInput.setPreferredSize(new Dimension(200, 20));
+        inputPanel.add(textInput);
+
+        /// PADDING
+        JPanel paddingPanel = new JPanel();
+        paddingPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        paddingPanel.add(inputPanel);
+
+        container.add(paddingPanel);
+
+        //// SEARCH PANEL
         JPanel searchPanel = new JPanel();
         searchPanel.setLayout(new FlowLayout());
 
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(200, 20));
-        searchPanel.add(textField, BorderLayout.CENTER);
+        /// COMBO BOX
+        comboBox = new JComboBox<String>(new String[]{"Find by word", "Find by definition"});
+        comboBox.setBackground(Color.WHITE);
+        searchPanel.add(comboBox);
 
+        /// FIND BUTTON
         JButton button = new JButton("Find");
         button.setActionCommand("Find");
         button.addActionListener(listener);
-        searchPanel.add(button, BorderLayout.LINE_END);
+        searchPanel.add(button);
 
-        container.add(searchPanel, BorderLayout.CENTER);
+        container.add(searchPanel);
 
+        //// UPDATE PANEL
         JPanel updatePanel = new JPanel();
-        updatePanel.setLayout(new BoxLayout(updatePanel, BoxLayout.Y_AXIS));
+        updatePanel.setLayout(new FlowLayout());
 
-        button = new JButton("Add");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        /// ADD BUTTON
+        button = new JButton("Add word");
         button.setActionCommand("Add");
         button.addActionListener(listener);
         updatePanel.add(button);
 
-        button = new JButton("Edit");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        /// EDIT BUTTON
+        button = new JButton("Edit word");
         button.setActionCommand("Edit");
         button.addActionListener(listener);
         updatePanel.add(button);
 
-        button = new JButton("Delete");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        /// DELETE BUTTON
+        button = new JButton("Delete word");
         button.setActionCommand("Delete");
-        button.addActionListener(listener);
-        updatePanel.add(button);
-
-        button = new JButton("Reset");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setActionCommand("Reset");
         button.addActionListener(listener);
         updatePanel.add(button);
 
         container.add(updatePanel, BorderLayout.LINE_END);
 
-        JPanel returnPanel = new JPanel();
+        //// SEARCH RESULT PANEL
+        JPanel searchResultPanel = new JPanel();
+        searchResultPanel.setBorder(BorderFactory.createTitledBorder("Search result"));
+        searchResultPanel.setBackground(Color.WHITE);
 
+        /// RESULT LABEL
+        searchResult = new JList<String>();
+        searchResult.setListData(new String[] {""});
+        searchResultPanel.add(searchResult, BorderLayout.CENTER);
+
+        /// SCROLL PANE
+        JScrollPane scrollPane = new JScrollPane(searchResult);
+        searchResultPanel.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.setPreferredSize(new Dimension(400, 200));
+
+        /// PADDING
+        paddingPanel = new JPanel();
+        paddingPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        paddingPanel.add(searchResultPanel);
+
+        container.add(paddingPanel);
+
+        //// BOTTOM PANEL
+        JPanel bottomPanel = new JPanel();
+
+        /// RESET BUTTON
+        button = new JButton("Reset");
+        button.setActionCommand("Reset");
+        button.addActionListener(listener);
+        bottomPanel.add(button);
+
+        /// BACK BUTTON
         button = new JButton("Back");
         button.setActionCommand("Back");
         button.addActionListener(listener);
-        returnPanel.add(button);
+        bottomPanel.add(button);
 
-        container.add(returnPanel, BorderLayout.PAGE_END);
+        container.add(bottomPanel, BorderLayout.PAGE_END);
     }
 
     public static JFrame createFrame() {
