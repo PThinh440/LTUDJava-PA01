@@ -66,7 +66,8 @@ public class DictionaryManager {
         }
 
         // add to history
-        HistoryTable.addToHistory(word + ": " + dictionary.get(word));
+        HistoryTable.addToHistory(word);
+//        HistoryTable.addToHistory(word + ": " + dictionary.get(word));
 
         return definition;
     }
