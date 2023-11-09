@@ -27,9 +27,7 @@ public class FileLoader {
     }
     public static void main(String[] args) throws IOException {
 //        TreeMap<String, String> dict = loadDictionary();
-
 //        System.out.println(dict.size());
-
 //        for (String key : dict.keySet()) {
 //            System.out.println("Key: " + key + ", Value: " + dict.get(key));
 //        }

@@ -1,18 +1,16 @@
 import javax.swing.*;
 import java.io.IOException;
-import java.util.Random;
 import java.util.TreeMap;
+import java.util.random.RandomGenerator;
 
 public class DictionaryManager {
-    public static TreeMap<String, String> dictionary;
-    public static Random rand = new Random();
+    private static TreeMap<String, String> dictionary;
 
     public static void loadDictionary() throws IOException {
         dictionary = FileLoader.loadDictionary();
     }
 
     public static boolean addNewWord(String word){
-
         if (dictionary.containsKey(word)){
             String[] options = new String[]{"Overwrite", "Add meaning", "Cancel"};
             int option = JOptionPane.showOptionDialog(null,
@@ -42,7 +40,7 @@ public class DictionaryManager {
 
     public static boolean deleteExistingWord(String word){
         if (dictionary.containsKey(word)){
-            // Confirm trc khi xoa
+            // Confirm before delete
             int option = JOptionPane.showConfirmDialog(null, "Delete?");
             if (option == JOptionPane.YES_OPTION){
                 dictionary.remove(word);
@@ -57,16 +55,11 @@ public class DictionaryManager {
 
     public static String findWordDefinition(String word){
         String definition = "";
-
         definition = dictionary.get(word);
-        if  (definition == null) {
-//            System.out.println("This word is not in dictionary");
+
+        if (definition == null) {
             return "";
         }
-
-        // add to history
-        HistoryTable.addToHistory(word);
-//        HistoryTable.addToHistory(word + ": " + dictionary.get(word));
 
         return definition;
     }
@@ -80,11 +73,8 @@ public class DictionaryManager {
                     word.append("`");
                 }
                 word.append(key + ": " + dictionary.get(key));
-
             }
         }
-
-        // TODO: add to history
 
         return word.toString();
     }
@@ -100,24 +90,12 @@ public class DictionaryManager {
         return true;
     }
 
-    public static String[] getWordMeaning(){
-        String[] meaning = new String[0];
-
-        return meaning;
-    }
-
     public static String randomWord(){
         String word = "";
-        int chosenWordIndex = rand.nextInt(dictionary.size());
+        int chosenWordIndex = RandomGenerator.getDefault().nextInt(dictionary.size());
         word = (String) dictionary.keySet().toArray()[chosenWordIndex];
 
         return word;
-    }
-
-    public static String randomDefinition(){
-        String definition = "";
-
-        return definition;
     }
 
     public static void main (String[] args){

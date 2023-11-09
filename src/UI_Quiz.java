@@ -1,43 +1,46 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.random.RandomGenerator;
 
 public class UI_Quiz {
-    public static JLabel quiz;
-    public static JLabel wordDisplay;
-    public static JComboBox<String> quizMode;
-    public static JRadioButton rb1;
-    public static JRadioButton rb2;
-    public static JRadioButton rb3;
-    public static JRadioButton rb4;
+    private static JLabel quiz;
+    private static JLabel wordDisplay;
+    private static JComboBox<String> quizMode;
+    private static JRadioButton rb1, rb2, rb3, rb4;
+    private static int answer;
 
-    public static int answer;
+    public static JLabel getWordDisplay(){
+        return wordDisplay;
+    }
+
     private static void createContentPane(Container container) {
         EventListener listener = new EventListener();
 
+        ///// MAIN PANEL
         JPanel mainPanel = new JPanel();
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         //// DAILY WORD PANEL
         JPanel dailyWordPanel = new JPanel();
+        dailyWordPanel.setBorder(BorderFactory.createTitledBorder("On this day slang word"));
         dailyWordPanel.setLayout(new BoxLayout(dailyWordPanel, BoxLayout.Y_AXIS));
-        dailyWordPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        dailyWordPanel.setPreferredSize(new Dimension(350, 100));
+        dailyWordPanel.setBackground(Color.WHITE);
 
         /// WORD BOX PANEL
         JPanel wordBoxPanel = new JPanel();
         wordBoxPanel.setBackground(Color.WHITE);
 
-        // WORD LABEL
-        // TODO scrollpane
+        // LABEL for word displaying
         wordDisplay = new JLabel();
         wordDisplay.setAlignmentX(Component.CENTER_ALIGNMENT);
         wordBoxPanel.add(wordDisplay);
 
-        dailyWordPanel.add(wordBoxPanel);
-
-        /// RIGID AREA
-        dailyWordPanel.add(Box.createRigidArea(new Dimension(200, 10)));
+        // SCROLL PANE for word label
+        JScrollPane wordScroll = new JScrollPane(wordBoxPanel);
+        dailyWordPanel.add(wordScroll);
 
         /// NEW BUTTON
         JButton button = new JButton("New word");
@@ -46,21 +49,29 @@ public class UI_Quiz {
         button.addActionListener(listener);
         dailyWordPanel.add(button);
 
-        mainPanel.add(dailyWordPanel);
+        /// PADDING for daily word panel
+        JPanel paddingPanel = new JPanel();
+        paddingPanel.setBorder(new EmptyBorder(10, 10, 0, 10));
+        paddingPanel.add(dailyWordPanel);
+
+        mainPanel.add(paddingPanel);
 
         //// QUIZ PANEL
         JPanel quizPanel = new JPanel();
-        quizPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        quizPanel.setBorder(BorderFactory.createTitledBorder("Quiz"));
+        quizPanel.setPreferredSize(new Dimension(350, 200));
         quizPanel.setLayout(new BoxLayout(quizPanel, BoxLayout.Y_AXIS));
+        quizPanel.setBackground(Color.WHITE);
 
-        /// COMBOBOX
+        /// COMBOBOX for switching between 2 quiz modes
         quizMode = new JComboBox<String>(
                 new String[] {"Word Quiz", "Definition Quiz"});
+        quizMode.setBackground(Color.WHITE);
         quizMode.setActionCommand("Switch Mode");
         quizMode.addActionListener(listener);
         quizPanel.add(quizMode);
 
-        /// LABEL
+        /// LABEL for question displaying
         quiz = new JLabel();
         quiz.setAlignmentX(Component.CENTER_ALIGNMENT);
         quiz.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -72,7 +83,7 @@ public class UI_Quiz {
         choicePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         choicePanel.setBackground(Color.WHITE);
 
-        // BUTTON GROUP
+        // BUTTON GROUP for one choice only
         ButtonGroup buttonGroup = new ButtonGroup();
 
         // OPT 1 BUTTON
@@ -109,7 +120,12 @@ public class UI_Quiz {
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         quizPanel.add(button);
 
-        mainPanel.add(quizPanel);
+        /// PADDING for quiz panel
+        paddingPanel = new JPanel();
+        paddingPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        paddingPanel.add(quizPanel);
+
+        mainPanel.add(paddingPanel);
 
         //// RETURN PANEL
         JPanel returnPanel = new JPanel();
@@ -121,44 +137,49 @@ public class UI_Quiz {
         returnPanel.add(button);
 
         mainPanel.add(returnPanel);
-        JScrollPane scrollPane = new JScrollPane(mainPanel);
-        container.add(scrollPane);
+
+        //// SCROLL PANE for main panel
+        JScrollPane mainScroll = new JScrollPane(mainPanel);
+        container.add(mainScroll);
     }
 
     public static int getChoice(){
         int choice = -1;
 
         if (rb1.isSelected()){
-            choice = 1;
+            choice = 0;
         } else if (rb2.isSelected()){
-            choice = 2;
+            choice = 1;
         } else if (rb3.isSelected()){
-            choice = 3;
+            choice = 2;
         } else if (rb4.isSelected()){
-            choice = 4;
+            choice = 3;
         }
         return choice;
+    }
+
+    public static boolean choiceValidation(){
+        return getChoice() == answer;
     }
 
     public static void setQuiz(){
         String question = "";
         String[] options= new String[4];
-        int chosenIndex = DictionaryManager.rand.nextInt(4);
+        int chosenIndex = RandomGenerator.getDefault().nextInt(4);
         int mode = quizMode.getSelectedIndex();
 
         for (int i = 0; i < 4; i++){
             String word = DictionaryManager.randomWord();
 
-            if (i == chosenIndex){
-                if (mode == 0) {
+            if (mode == 0){ // Word quiz mode
+                if (i == chosenIndex){
                     question = word;
-                } else{
-                    question = DictionaryManager.dictionary.get(word);
                 }
-            }
-            if (mode == 0) {
-                options[i] = DictionaryManager.dictionary.get(word);
-            } else {
+                options[i] = DictionaryManager.findWordDefinition(word);
+            } else { // Definition quiz mode
+                if (i == chosenIndex){
+                    question = DictionaryManager.findWordDefinition(word);
+                }
                 options[i] = word;
             }
         }
@@ -173,23 +194,14 @@ public class UI_Quiz {
     }
 
     public static JFrame createFrame() {
-        //Make sure we have nice window decorations.
         JFrame.setDefaultLookAndFeelDecorated(true);
-
-        //Create and set up the window.
         JFrame frame = new JFrame("Quiz");
-        frame.setMinimumSize(new Dimension(400, 100));
+        frame.setPreferredSize(new Dimension(400, 450));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Set up the content pane.
         createContentPane(frame.getContentPane());
-        //Use the content pane's default BorderLayout. No need for
-        //setLayout(new BorderLayout());
-
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
-//        frame.setLocation(200,200);
+        frame.setLocationRelativeTo(null);
         return frame;
     }
 

@@ -5,39 +5,45 @@ public class UI_History {
     private static void createContentPane(Container container) {
         EventListener listener = new EventListener();
 
-        JList list = new JList(HistoryTable.wordHistory.toArray());
+        ///// MAIN PANEL
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        JScrollPane scrollPane = new JScrollPane(list);
-        container.add(scrollPane, BorderLayout.CENTER);
+        //// SEARCH HISTORY PANEL
+        JPanel searchHistoryPanel = new JPanel();
+        searchHistoryPanel.setBorder(BorderFactory.createTitledBorder("Search history"));
 
+        /// LIST for storing search history
+        JList wordList = new JList(HistoryTable.wordHistory.toArray());
 
-        JPanel returnPanel = new JPanel();
+        /// SCROLL PANE for list
+        JScrollPane listScroll = new JScrollPane(wordList);
+        listScroll.setPreferredSize(new Dimension(250, 150));
+
+        searchHistoryPanel.add(listScroll);
+        mainPanel.add(searchHistoryPanel);
+
+        /// BACK BUTTON
         JButton button = new JButton("Back");
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setActionCommand("Back");
         button.addActionListener(listener);
-        returnPanel.add(button);
+        mainPanel.add(button);
 
-        container.add(returnPanel, BorderLayout.PAGE_END);
+        //// SCROLL PANE for container
+        JScrollPane mainScroll = new JScrollPane(mainPanel);
+        container.add(mainScroll);
     }
 
     public static JFrame createFrame() {
-        //Make sure we have nice window decorations.
         JFrame.setDefaultLookAndFeelDecorated(true);
-
-        //Create and set up the window.
         JFrame frame = new JFrame("History");
-        frame.setMinimumSize(new Dimension(400, 100));
+        frame.setPreferredSize(new Dimension(300, 250));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Set up the content pane.
         createContentPane(frame.getContentPane());
-        //Use the content pane's default BorderLayout. No need for
-        //setLayout(new BorderLayout());
-
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
-//        frame.setLocation(200,200);
+        frame.setLocationRelativeTo(null);
         return frame;
     }
 

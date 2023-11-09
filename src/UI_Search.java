@@ -3,35 +3,51 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class UI_Search {
-    public static JTextField textInput;
-    public static JList<String> searchResult;
-    public static JComboBox<String> comboBox;
+    private static JTextField textInput;
+    private static JList<String> searchResult;
+    private static JComboBox<String> comboBox;
+
+    public static JTextField getTextInput(){
+        return textInput;
+    }
+
+    public static void setSearchResult(String[] results){
+        searchResult.setListData(results);
+    }
+
+    public static JComboBox<String> getComboBox(){
+        return comboBox;
+    }
+
     private static void addComponentsToPane(Container container) {
         EventListener listener = new EventListener();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+
+        //// MAIN PANEL
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         //// INPUT PANEL
         JPanel inputPanel = new JPanel();
         inputPanel.setBorder(BorderFactory.createTitledBorder("Input text"));
         inputPanel.setBackground(Color.WHITE);
 
-        /// TEXT FIELD
+        /// TEXT FIELD for input text
         textInput = new JTextField();
         textInput.setPreferredSize(new Dimension(200, 20));
         inputPanel.add(textInput);
 
-        /// PADDING
+        /// PADDING for input panel
         JPanel paddingPanel = new JPanel();
         paddingPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         paddingPanel.add(inputPanel);
 
-        container.add(paddingPanel);
+        mainPanel.add(paddingPanel);
 
         //// SEARCH PANEL
         JPanel searchPanel = new JPanel();
         searchPanel.setLayout(new FlowLayout());
 
-        /// COMBO BOX
+        /// COMBO BOX for choosing between 2 search modes
         comboBox = new JComboBox<String>(new String[]{"Find by word", "Find by definition"});
         comboBox.setBackground(Color.WHITE);
         searchPanel.add(comboBox);
@@ -42,7 +58,7 @@ public class UI_Search {
         button.addActionListener(listener);
         searchPanel.add(button);
 
-        container.add(searchPanel);
+        mainPanel.add(searchPanel);
 
         //// UPDATE PANEL
         JPanel updatePanel = new JPanel();
@@ -66,29 +82,29 @@ public class UI_Search {
         button.addActionListener(listener);
         updatePanel.add(button);
 
-        container.add(updatePanel, BorderLayout.LINE_END);
+        mainPanel.add(updatePanel, BorderLayout.LINE_END);
 
         //// SEARCH RESULT PANEL
         JPanel searchResultPanel = new JPanel();
         searchResultPanel.setBorder(BorderFactory.createTitledBorder("Search result"));
         searchResultPanel.setBackground(Color.WHITE);
 
-        /// RESULT LABEL
+        /// LIST for displaying search results
         searchResult = new JList<String>();
         searchResult.setListData(new String[] {""});
         searchResultPanel.add(searchResult, BorderLayout.CENTER);
 
-        /// SCROLL PANE
+        /// SCROLL PANE for search results list
         JScrollPane scrollPane = new JScrollPane(searchResult);
         searchResultPanel.add(scrollPane, BorderLayout.CENTER);
         scrollPane.setPreferredSize(new Dimension(400, 200));
 
-        /// PADDING
+        /// PADDING for search result panel
         paddingPanel = new JPanel();
         paddingPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         paddingPanel.add(searchResultPanel);
 
-        container.add(paddingPanel);
+        mainPanel.add(paddingPanel);
 
         //// BOTTOM PANEL
         JPanel bottomPanel = new JPanel();
@@ -105,26 +121,22 @@ public class UI_Search {
         button.addActionListener(listener);
         bottomPanel.add(button);
 
-        container.add(bottomPanel, BorderLayout.PAGE_END);
+        mainPanel.add(bottomPanel, BorderLayout.PAGE_END);
+
+        ///// SCROLL PANE for container
+        JScrollPane mainScroll = new JScrollPane(mainPanel);
+        container.add(mainScroll);
     }
 
     public static JFrame createFrame() {
-        //Make sure we have nice window decorations.
         JFrame.setDefaultLookAndFeelDecorated(true);
-
-        //Create and set up the window.
         JFrame frame = new JFrame("Search");
         frame.setMinimumSize(new Dimension(400, 100));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Set up the content pane.
         addComponentsToPane(frame.getContentPane());
-        //Use the content pane's default BorderLayout. No need for
-        //setLayout(new BorderLayout());
-
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         return frame;
     }
 
