@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="create default UIs and basic Events">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PA01.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ScreenManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI_Default.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI_History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI_Quiz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI_Search.java" afterDir="false" />
+    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="Add slang data file">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/ScreenManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/ScreenManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_History.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Search.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
   </component>
   <component name="ChangesViewManager">
     <option name="groupingKeys">
+      <option value="directory" />
       <option value="module" />
     </option>
   </component>
@@ -35,53 +35,83 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PThinh440&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="07776fd5-b357-4550-acbc-1a5319fa7d02" />
+        <option name="url" value="https://github.com/PThinh440/LTUDJava-PA01.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2XeAqAnbOTwPAebalnXUY6AehC6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/phuoc/IdeaProjects/PA01",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "C:/Users/phuoc/IdeaProjects/PA01/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/phuoc/IdeaProjects/Exercise01&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/phuoc/IdeaProjects/PA01/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\phuoc\IdeaProjects\PA01" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ScreenManager">
-    <configuration name="ScreenManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ScreenManager" />
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PA01" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI_Default" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI_Default" />
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PA01" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI_History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI_History" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PA01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UI_Quiz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI_Quiz" />
       <module name="PA01" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,10 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ScreenManager" />
-        <item itemvalue="Application.UI_History" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.UI_Quiz" />
+        <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.UI_Search" />
-        <item itemvalue="Application.UI_Default" />
       </list>
     </recent_temporary>
   </component>
@@ -115,6 +146,27 @@
       <workItem from="1699022919161" duration="1337000" />
       <workItem from="1699079190523" duration="172000" />
       <workItem from="1699085220492" duration="5784000" />
+      <workItem from="1699091084480" duration="237000" />
+      <workItem from="1699181387572" duration="434000" />
+      <workItem from="1699181839327" duration="2201000" />
+      <workItem from="1699191281707" duration="1600000" />
+      <workItem from="1699192911411" duration="158000" />
+      <workItem from="1699244297413" duration="153000" />
+      <workItem from="1699256054405" duration="604000" />
+      <workItem from="1699257034130" duration="1093000" />
+      <workItem from="1699319230265" duration="2155000" />
+      <workItem from="1699326390017" duration="985000" />
+      <workItem from="1699341697269" duration="544000" />
+      <workItem from="1699343484239" duration="168000" />
+      <workItem from="1699357640331" duration="1844000" />
+      <workItem from="1699361461060" duration="4841000" />
+      <workItem from="1699402651834" duration="3363000" />
+      <workItem from="1699406415447" duration="7199000" />
+      <workItem from="1699414924749" duration="1352000" />
+      <workItem from="1699445746126" duration="1907000" />
+      <workItem from="1699525468468" duration="762000" />
+      <workItem from="1699534325893" duration="3815000" />
+      <workItem from="1699542735095" duration="7493000" />
     </task>
     <task id="LOCAL-00001" summary="create default UIs and basic Events">
       <option name="closed" value="true" />
@@ -124,7 +176,167 @@
       <option name="project" value="LOCAL" />
       <updated>1699090957472</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create default UIs and basic Events">
+      <option name="closed" value="true" />
+      <created>1699091116957</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699091116957</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refractor">
+      <option name="closed" value="true" />
+      <created>1699181741357</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699181741357</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refractor and edit class name">
+      <option name="closed" value="true" />
+      <created>1699182112087</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699182112087</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add basic FileLoader and FileSaver">
+      <option name="closed" value="true" />
+      <created>1699244371504</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699244371504</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Develop UI_Quiz UI">
+      <option name="closed" value="true" />
+      <created>1699411417614</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699411417614</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add comment">
+      <option name="closed" value="true" />
+      <created>1699411730348</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699411730348</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add comment">
+      <option name="closed" value="true" />
+      <created>1699411743186</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699411743186</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add comment">
+      <option name="closed" value="true" />
+      <created>1699412230949</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699412230949</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Developed UI and added comments">
+      <option name="closed" value="true" />
+      <created>1699413657036</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699413657036</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add basic HistoryTable class">
+      <option name="closed" value="true" />
+      <created>1699413818911</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699413818911</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add DictionaryManager class with 5 developed methods">
+      <option name="closed" value="true" />
+      <created>1699413895478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699413895478</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add EventListener with handling events">
+      <option name="closed" value="true" />
+      <created>1699413949227</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699413949227</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Developed Edit method">
+      <option name="closed" value="true" />
+      <created>1699415335481</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699415335481</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add action-failed notification">
+      <option name="closed" value="true" />
+      <created>1699415386872</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699415386872</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Basic implement for HistoryTable">
+      <option name="closed" value="true" />
+      <created>1699447427505</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699447427505</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Basic implement for HistoryTable and Quiz">
+      <option name="closed" value="true" />
+      <created>1699447491755</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699447491755</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Change HistoryTable storing method">
+      <option name="closed" value="true" />
+      <created>1699525634003</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699525634003</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Develop Quiz features">
+      <option name="closed" value="true" />
+      <created>1699538178470</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699538178470</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Refractor">
+      <option name="closed" value="true" />
+      <created>1699550919187</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699550919187</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add slang data file">
+      <option name="closed" value="true" />
+      <created>1699551278383</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699551278383</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +367,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create default UIs and basic Events" />
-    <option name="LAST_COMMIT_MESSAGE" value="create default UIs and basic Events" />
+    <MESSAGE value="Refractor and edit class name" />
+    <MESSAGE value="Add basic FileLoader and FileSaver" />
+    <MESSAGE value="Develop UI_Quiz UI" />
+    <MESSAGE value="Add comment" />
+    <MESSAGE value="Developed UI and added comments" />
+    <MESSAGE value="Add basic HistoryTable class" />
+    <MESSAGE value="Add DictionaryManager class with 5 developed methods" />
+    <MESSAGE value="Add EventListener with handling events" />
+    <MESSAGE value="Developed Edit method" />
+    <MESSAGE value="Add action-failed notification" />
+    <MESSAGE value="Basic implement for HistoryTable" />
+    <MESSAGE value="Basic implement for HistoryTable and Quiz" />
+    <MESSAGE value="Change HistoryTable storing method" />
+    <MESSAGE value="Develop Quiz features" />
+    <MESSAGE value="Refractor" />
+    <MESSAGE value="Add slang data file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add slang data file" />
   </component>
 </project>
