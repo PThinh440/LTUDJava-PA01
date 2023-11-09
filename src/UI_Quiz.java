@@ -3,10 +3,21 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class UI_Quiz {
+    public static JLabel quiz;
+    public static JLabel wordDisplay;
+    public static JComboBox<String> quizMode;
+    public static JRadioButton rb1;
+    public static JRadioButton rb2;
+    public static JRadioButton rb3;
+    public static JRadioButton rb4;
+
+    public static int answer;
     private static void createContentPane(Container container) {
         EventListener listener = new EventListener();
 
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        JPanel mainPanel = new JPanel();
+
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         //// DAILY WORD PANEL
         JPanel dailyWordPanel = new JPanel();
@@ -18,7 +29,8 @@ public class UI_Quiz {
         wordBoxPanel.setBackground(Color.WHITE);
 
         // WORD LABEL
-        JLabel wordDisplay = new JLabel("Hello");
+        // TODO scrollpane
+        wordDisplay = new JLabel();
         wordDisplay.setAlignmentX(Component.CENTER_ALIGNMENT);
         wordBoxPanel.add(wordDisplay);
 
@@ -34,48 +46,70 @@ public class UI_Quiz {
         button.addActionListener(listener);
         dailyWordPanel.add(button);
 
-        container.add(dailyWordPanel);
+        mainPanel.add(dailyWordPanel);
 
         //// QUIZ PANEL
         JPanel quizPanel = new JPanel();
         quizPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         quizPanel.setLayout(new BoxLayout(quizPanel, BoxLayout.Y_AXIS));
 
+        /// COMBOBOX
+        quizMode = new JComboBox<String>(
+                new String[] {"Word Quiz", "Definition Quiz"});
+        quizMode.setActionCommand("Switch Mode");
+        quizMode.addActionListener(listener);
+        quizPanel.add(quizMode);
+
         /// LABEL
-        JLabel quiz = new JLabel("Quiz");
+        quiz = new JLabel();
         quiz.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quiz.setBorder(new EmptyBorder(10, 10, 10, 10));
         quizPanel.add(quiz);
 
         /// CHOICE PANEL
         JPanel choicePanel = new JPanel();
-        choicePanel.setLayout(new FlowLayout());
+        choicePanel.setLayout(new BoxLayout(choicePanel, BoxLayout.Y_AXIS));
+        choicePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        choicePanel.setBackground(Color.WHITE);
+
+        // BUTTON GROUP
+        ButtonGroup buttonGroup = new ButtonGroup();
 
         // OPT 1 BUTTON
-        button = new JButton("Option 1");
-        button.setActionCommand("Opt1");
-        button.addActionListener(listener);
-        choicePanel.add(button);
+        rb1 = new JRadioButton();
+        rb1.setSelected(true);
+        rb1.setBackground(Color.WHITE);
+        buttonGroup.add(rb1);
+        choicePanel.add(rb1);
 
         // OPT 2 BUTTON
-        button = new JButton("Option 2");
-        button.setActionCommand("Opt2");
-        button.addActionListener(listener);
-        choicePanel.add(button);
+        rb2 = new JRadioButton();
+        rb2.setBackground(Color.WHITE);
+        buttonGroup.add(rb2);
+        choicePanel.add(rb2);
 
         // OPT 3 BUTTON
-        button = new JButton("Option 3");
-        button.setActionCommand("Opt3");
-        button.addActionListener(listener);
-        choicePanel.add(button);
+        rb3 = new JRadioButton();
+        rb3.setBackground(Color.WHITE);
+        buttonGroup.add(rb3);
+        choicePanel.add(rb3);
 
         // OPT 4 BUTTON
-        button = new JButton("Option 4");
-        button.setActionCommand("Opt4");
-        button.addActionListener(listener);
-        choicePanel.add(button);
+        rb4 = new JRadioButton();
+        rb4.setBackground(Color.WHITE);
+        buttonGroup.add(rb4);
+        choicePanel.add(rb4);
 
         quizPanel.add(choicePanel);
-        container.add(quizPanel);
+
+        // CHOOSE BUTTON
+        button = new JButton("Choose");
+        button.setActionCommand("Choose");
+        button.addActionListener(listener);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quizPanel.add(button);
+
+        mainPanel.add(quizPanel);
 
         //// RETURN PANEL
         JPanel returnPanel = new JPanel();
@@ -86,8 +120,56 @@ public class UI_Quiz {
         button.addActionListener(listener);
         returnPanel.add(button);
 
-        container.add(returnPanel);
+        mainPanel.add(returnPanel);
+        JScrollPane scrollPane = new JScrollPane(mainPanel);
+        container.add(scrollPane);
+    }
 
+    public static int getChoice(){
+        int choice = -1;
+
+        if (rb1.isSelected()){
+            choice = 1;
+        } else if (rb2.isSelected()){
+            choice = 2;
+        } else if (rb3.isSelected()){
+            choice = 3;
+        } else if (rb4.isSelected()){
+            choice = 4;
+        }
+        return choice;
+    }
+
+    public static void setQuiz(){
+        String question = "";
+        String[] options= new String[4];
+        int chosenIndex = DictionaryManager.rand.nextInt(4);
+        int mode = quizMode.getSelectedIndex();
+
+        for (int i = 0; i < 4; i++){
+            String word = DictionaryManager.randomWord();
+
+            if (i == chosenIndex){
+                if (mode == 0) {
+                    question = word;
+                } else{
+                    question = DictionaryManager.dictionary.get(word);
+                }
+            }
+            if (mode == 0) {
+                options[i] = DictionaryManager.dictionary.get(word);
+            } else {
+                options[i] = word;
+            }
+        }
+
+        quiz.setText(question);
+        rb1.setText(options[0]);
+        rb2.setText(options[1]);
+        rb3.setText(options[2]);
+        rb4.setText(options[3]);
+
+        answer = chosenIndex;
     }
 
     public static JFrame createFrame() {

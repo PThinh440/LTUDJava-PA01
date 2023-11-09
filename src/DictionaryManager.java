@@ -7,7 +7,6 @@ public class DictionaryManager {
     public static TreeMap<String, String> dictionary;
     public static Random rand = new Random();
 
-
     public static void loadDictionary() throws IOException {
         dictionary = FileLoader.loadDictionary();
     }
@@ -108,12 +107,11 @@ public class DictionaryManager {
     }
 
     public static String randomWord(){
-        String word = "", definition = "";
+        String word = "";
         int chosenWordIndex = rand.nextInt(dictionary.size());
         word = (String) dictionary.keySet().toArray()[chosenWordIndex];
-        definition = dictionary.get(word);
 
-        return word + ": " + definition;
+        return word;
     }
 
     public static String randomDefinition(){

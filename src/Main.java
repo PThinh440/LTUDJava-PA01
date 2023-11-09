@@ -46,12 +46,6 @@ class EventListener implements ActionListener{
                 Main.frame.dispose();
                 Main.frame = UI_History.createFrame();
                 break;
-            case "Random Word":
-                break;
-            case "Quiz":
-                Main.frame.dispose();
-                Main.frame = UI_Quiz.createFrame();
-                break;
             case "Add": {
                 String text = UI_Search.textInput.getText().toUpperCase();
 
@@ -103,6 +97,36 @@ class EventListener implements ActionListener{
                 }
                 JOptionPane.showMessageDialog(null,"Reset successfully!");
                 break;
+            case "Quiz":{
+                Main.frame.dispose();
+                Main.frame = UI_Quiz.createFrame();
+
+                UI_Quiz.setQuiz();
+
+                String word = DictionaryManager.randomWord();
+                String result = word + ":" + DictionaryManager.dictionary.get(word);
+                UI_Quiz.wordDisplay.setText(result);
+
+                break;
+            }
+            case "New": {
+                String word = DictionaryManager.randomWord();
+                String result = word + ":" + DictionaryManager.dictionary.get(word);
+                UI_Quiz.wordDisplay.setText(result);
+                break;
+            }
+            case "Switch Mode":
+                UI_Quiz.setQuiz();
+                break;
+            case "Choose":
+                int choice = UI_Quiz.getChoice();
+                if (choice - 1 == UI_Quiz.answer){
+                    JOptionPane.showMessageDialog(null,"Right answer!");
+                } else{
+                    JOptionPane.showMessageDialog(null,"Wrong answer!");
+                }
+                UI_Quiz.setQuiz();
+                break;
             case "Back":
                 Main.frame.dispose();
                 Main.frame = UI_Default.createFrame();
@@ -113,17 +137,24 @@ class EventListener implements ActionListener{
     }
 }
 
-public class Main { // 5, 8, 9, 10
+public class Main {
     public static JFrame frame;
+
+    private static void setUp(){
+        HistoryTable.loadHistory();
+        try {
+            DictionaryManager.loadDictionary();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        frame = UI_Default.createFrame();
+    }
+
     public static void main(String[] args){
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    DictionaryManager.loadDictionary();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                frame = UI_Default.createFrame();
+                setUp();
             }
         });
     }
