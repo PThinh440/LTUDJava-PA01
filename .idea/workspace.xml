@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="Add slang data file">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="Add module files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/ScreenManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/ScreenManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_History.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_History.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI_Default.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Default.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +160,9 @@
       <workItem from="1699525468468" duration="762000" />
       <workItem from="1699534325893" duration="3815000" />
       <workItem from="1699542735095" duration="7493000" />
+      <workItem from="1699551397173" duration="151000" />
+      <workItem from="1699551585486" duration="53000" />
+      <workItem from="1699582812829" duration="452000" />
     </task>
     <task id="LOCAL-00001" summary="create default UIs and basic Events">
       <option name="closed" value="true" />
@@ -336,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699551278383</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add module files">
+      <option name="closed" value="true" />
+      <created>1699551504699</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1699551504699</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,6 +387,7 @@
     <MESSAGE value="Develop Quiz features" />
     <MESSAGE value="Refractor" />
     <MESSAGE value="Add slang data file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add slang data file" />
+    <MESSAGE value="Add module files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add module files" />
   </component>
 </project>
