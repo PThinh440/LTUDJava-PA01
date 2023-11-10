@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.io.IOException;
 import java.util.TreeMap;
-import java.util.random.RandomGenerator;
 
 public class DictionaryManager {
     private static TreeMap<String, String> dictionary;
@@ -92,7 +91,7 @@ public class DictionaryManager {
 
     public static String randomWord(){
         String word = "";
-        int chosenWordIndex = RandomGenerator.getDefault().nextInt(dictionary.size());
+        int chosenWordIndex = RandomGenerator.getRand().nextInt(dictionary.size());
         word = (String) dictionary.keySet().toArray()[chosenWordIndex];
 
         return word;

@@ -114,6 +114,7 @@ class EventListener implements ActionListener{
                 String word = DictionaryManager.randomWord();
                 String result = word + ": " + DictionaryManager.findWordDefinition(word);
                 UI_Quiz.getWordDisplay().setText(result);
+//                System.out.println(result);
                 break;
             }
             case "Switch Mode":

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.util.random.RandomGenerator;
 
 public class UI_Quiz {
     private static JLabel quiz;
@@ -165,7 +164,7 @@ public class UI_Quiz {
     public static void setQuiz(){
         String question = "";
         String[] options= new String[4];
-        int chosenIndex = RandomGenerator.getDefault().nextInt(4);
+        int chosenIndex = RandomGenerator.getRand().nextInt(4);
         int mode = quizMode.getSelectedIndex();
 
         for (int i = 0; i < 4; i++){
