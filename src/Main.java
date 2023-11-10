@@ -7,7 +7,7 @@ class EventListener implements ActionListener{
     public void actionPerformed(ActionEvent e)
     {
         String actionCommand = e.getActionCommand();
-        System.out.println(actionCommand);
+//        System.out.println(actionCommand);
 
         switch (actionCommand){
             case "Search":
