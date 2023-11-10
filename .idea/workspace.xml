@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PA01:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="Add module files">
+    <list default="true" id="316d42c7-3828-4772-9461-3f0e365a520b" name="Changes" comment="Improve default UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Default.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Default.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Default.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_History.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA01/UI_Quiz.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,21 +65,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/phuoc/IdeaProjects/Exercise01&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/phuoc/IdeaProjects/PA01/src/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/phuoc/IdeaProjects/Exercise01",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "C:/Users/phuoc/IdeaProjects/PA01/src/Main.java",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\phuoc\IdeaProjects\PA01" />
@@ -81,7 +91,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="JAR Application.PA01.jar">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PA01" />
@@ -110,20 +120,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI_Search" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI_Search" />
-      <module name="PA01" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="PA01.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/PA01_jar/PA01.jar" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.PA01.jar" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.UI_Quiz" />
         <item itemvalue="Application.Main (4)" />
-        <item itemvalue="Application.UI_Search" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +169,7 @@
       <workItem from="1699542735095" duration="7493000" />
       <workItem from="1699551397173" duration="151000" />
       <workItem from="1699551585486" duration="53000" />
-      <workItem from="1699582812829" duration="452000" />
+      <workItem from="1699582812829" duration="936000" />
     </task>
     <task id="LOCAL-00001" summary="create default UIs and basic Events">
       <option name="closed" value="true" />
@@ -340,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699551504699</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Improve default UI">
+      <option name="closed" value="true" />
+      <created>1699583589759</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1699583589759</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +403,7 @@
     <MESSAGE value="Refractor" />
     <MESSAGE value="Add slang data file" />
     <MESSAGE value="Add module files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add module files" />
+    <MESSAGE value="Improve default UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve default UI" />
   </component>
 </project>
