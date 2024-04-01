@@ -21,4 +21,6 @@ MSSV: 21127440
 
 Họ tên: Nguyễn Phước Thịnh
 
+Email: npthinh212@clc.fitus.edu.vn / phuocthinh2802@gmail.com
+
 **Video demo:** https://youtu.be/wQtpgSEFD1o
