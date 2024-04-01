@@ -4,6 +4,7 @@ FIT-HCMUS| Lập trình ứng dụng Java
 **Đồ án 1:** Slang word
 
 **Mô tả:** 
+
 Slang world Dictionary là chương trình Từ điển về Slang, hỗ trợ 3 chức năng chính là:
 * Tra cứu
 * Xem lịch sử tra cứu
